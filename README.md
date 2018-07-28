@@ -1,6 +1,11 @@
 # Learn Nodejs
 
-Learn how to use Nodejs
+Learn how to use Nodejs by making shape calculator application
+
+## Screenshot
+
+![Shape Calculator](./images/learn-nodejs.png)
+
 
 ---
 
