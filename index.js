@@ -6,6 +6,8 @@ const r1 = readline.createInterface({
     output: process.stdout
 })
 
+let stop = 0;
+
 r1.question(
     '1. Calculate Square Area \n' +
     '2. Calculate Square Perimeter \n' +
@@ -20,65 +22,78 @@ r1.question(
     'Please choose one by enter the number : \n', (answer1) => {
         switch (parseInt(answer1)) {
             case 1:
-                r1.question('Please enter the side : ', (side) => {
-                    r1.pause();
-                    console.log("Result : ", shape.squareArea(parseFloat(side)));
+                r1.question('Please enter the side :', (side) => {
+                    console.log("Result :", shape.squareArea(parseFloat(side)));
+                    stop = 1;
                 });
                 break;
             case 2:
-                r1.question('Please enter the side : ', (side) => {
-                    console.log("Result : ", shape.squarePerimeter(parseFloat(side)));
+                r1.question('Please enter the side :', (side) => {
+                    console.log("Result :", shape.squarePerimeter(parseFloat(side)));
+                    stop = 1;
                 });
                 break;
             case 3:
-                r1.question('Please enter the length : ', (length) => {
-                    r1.question('Please enter the width : ', (width) => {
-                        console.log("Result : ", shape.rectangleArea(length, width));
+                r1.question('Please enter the length :', (length) => {
+                    r1.question('Please enter the width :', (width) => {
+                        console.log("Result :", shape.rectangleArea(length, width));
+                        stop = 1;
                     });
                 });
                 break;
             case 4:
-                r1.question('Please enter the length : ', (length) => {
-                    r1.question('Please enter the width : ', (width) => {
-                        console.log("Result : ", shape.rectanglePerimeter(length, width));
+                r1.question('Please enter the length :', (length) => {
+                    r1.question('Please enter the width :', (width) => {
+                        console.log("Result :", shape.rectanglePerimeter(length, width));
+                        stop = 1;
                     });
                 });
                 break;
             case 5:
-                r1.question('Please enter the radius : ', (radius) => {
-                    console.log("Result : ", shape.circleArea(radius));
+                r1.question('Please enter the radius :', (radius) => {
+                    console.log("Result :", shape.circleArea(radius));
+                    stop = 1;
                 });
                 break;
             case 6:
-                r1.question('Please enter the radius : ', (radius) => {
-                    console.log("Result : ", shape.circleCircumference(radius));
+                r1.question('Please enter the radius :', (radius) => {
+                    console.log("Result :", shape.circleCircumference(radius));
+                    stop = 1;
                 });
                 break;
             case 7:
-                r1.question('Please enter the side : ', (side) => {
-                    console.log("Result : ", shape.cubeArea(parseFloat(side)));
+                r1.question('Please enter the side :', (side) => {
+                    console.log("Result :", shape.cubeArea(parseFloat(side)));
+                    stop = 1;
                 });
                 break;
             case 8:
-                r1.question('Please enter the side : ', (side) => {
-                    console.log("Result : ", shape.cubeVolume(parseFloat(side)));
+                r1.question('Please enter the side :', (side) => {
+                    console.log("Result :", shape.cubeVolume(parseFloat(side)));
+                    stop = 1;
                 });
                 break;
             case 9:
-                r1.question('Please enter the radius : ', (radius) => {
+                r1.question('Please enter the radius :', (radius) => {
                     r1.question('Please enter the height : ', (height) => {
-                        console.log("Result : ", shape.cylinderArea(radius, height));
+                        console.log("Result :", shape.cylinderArea(radius, height));
+                        stop = 1;
                     });
                 });
                 break;
             case 10:
-                r1.question('Please enter the radius : ', (radius) => {
-                    r1.question('Please enter the height : ', (height) => {
-                        console.log("Result : ", shape.cylinderVolume(radius, height));
+                r1.question('Please enter the radius :', (radius) => {
+                    r1.question('Please enter the height :', (height) => {
+                        console.log("Result :", shape.cylinderVolume(radius, height));
+                        stop = 1;
                     });
                 });
                 break;
             default:
                 console.log("Wrong number");
+                stop = 1;
+        }
+        if (stop === 1) {
+            r1.close();
         }
     });
