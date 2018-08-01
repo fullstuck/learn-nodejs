@@ -1,0 +1,29 @@
+{
+  "name": "learn-nodejs",
+  "version": "0.1.0",
+  "description": "Learn Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alifraher/learn-nodejs.git"
+  },
+  "keywords": [
+    "learn",
+    "nodejs",
+    "javascript"
+  ],
+  "author": "M Alif Raher <alifraher@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alifraher/learn-nodejs/issues"
+  },
+  "homepage": "https://github.com/alifraher/learn-nodejs#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "colors": "^1.3.1",
+    "got": "^8.3.2"
+  }
+}
