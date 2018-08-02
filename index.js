@@ -1,21 +1,28 @@
 // Import library
 const readline = require('readline');
 const shape = require('./lib/shape.js');
+const fetch = require('node-fetch');
 
 // -----------------------------------------------------------------------------------
 // Declare Variable
 const mainMenu =
-    '1. Calculate Square Area \n' +
-    '2. Calculate Square Perimeter \n' +
-    '3. Calculate Rectangle Area \n' +
-    '4. Calculate Rectangle Perimeter \n' +
-    '5. Calculate Circle Area \n' +
-    '6. Calculate Circle Circumference \n' +
-    '7. Calculate Cube Area \n' +
-    '8. Calculate Cube Volume \n' +
-    '9. Calculate Cylinder Area \n' +
-    '10. Calculate Cylinder Volume \n' +
-    '0. Exit \n' +
+    '             ++++++++++++++++++++++++++++++++++++++++++ \n' +
+    '             ++++++++++++ SHAPE CALCULATOR ++++++++++++ \n' +
+    '             ++++++++++++++++++++++++++++++++++++++++++ \n \n' +
+    '                   1. Calculate Square Area \n' +
+    '                   2. Calculate Square Perimeter \n' +
+    '                   3. Calculate Rectangle Area \n' +
+    '                   4. Calculate Rectangle Perimeter \n' +
+    '                   5. Calculate Circle Area \n' +
+    '                   6. Calculate Circle Circumference \n' +
+    '                   7. Calculate Cube Area \n' +
+    '                   8. Calculate Cube Volume \n' +
+    '                   9. Calculate Cylinder Area \n' +
+    '                  10. Calculate Cylinder Volume \n' +
+    '             ------------------------------------------- \n' +
+    '                  11. Show my Github Followers \n' +
+    '             ------------------------------------------- \n' +
+    '                            0. Exit \n \n' +
     'Please choose one by enter the number : ';
 
 // -----------------------------------------------------------------------------------
@@ -30,17 +37,30 @@ const closeQuestion = () => r1.close();
 const calculate = (shape) => {
     const result = Math.round(shape * 100) / 100;
     console.log("Result :", result);
-    tryAgain();
+    backToMenu();
 };
 
-const tryAgain = () => {
-    r1.question("Try again ?(Y/N)", (answer) => {
-        if (answer.toLowerCase() == 'y') {
+const backToMenu = () => {
+    r1.question("Back to main menu ? (Y/N) ", (answer) => {
+        if (answer.toLowerCase() === 'y') {
             openQuestion();
         } else {
             closeQuestion();
         };
     });
+};
+
+const getFollowers = () => {
+    const url = 'https://api.github.com/users/alifraher/followers';
+    fetch(url)
+        .then(response => response.json())
+        .then(showFollowers);
+}
+
+const showFollowers = (data) => {
+    data.forEach(item => {
+        console.log(item.login);
+    })
 };
 
 const openQuestion = () => {
@@ -104,12 +124,16 @@ const openQuestion = () => {
                     });
                 });
                 break;
+            case 11:
+                getFollowers();
+                setTimeout(backToMenu, 1500);
+                break;
             case 0:
                 closeQuestion();
                 break;
             default:
                 console.log("Wrong input!");
-                tryAgain();
+                backToMenu();
         }
     });
 }
