@@ -4,7 +4,7 @@ const shape = require('./lib/shape.js');
 const r1 = readline.createInterface({
     input: process.stdin,
     output: process.stdout
-})
+});
 
 const closeInput = () => r1.close();
 
@@ -23,20 +23,23 @@ r1.question(
         switch (parseInt(answer1)) {
             case 1:
                 r1.question('Please enter the side :', (side) => {
-                    console.log("Result :", shape.squareArea(parseFloat(side)));
+                    const result = Math.round(shape.squareArea(parseFloat(side)) * 100) / 100;
+                    console.log("Result :", result);
                     closeInput();
                 });
                 break;
             case 2:
                 r1.question('Please enter the side :', (side) => {
-                    console.log("Result :", shape.squarePerimeter(parseFloat(side)));
+                    const result = Math.round(shape.squarePerimeter(parseFloat(side)) * 100) / 100;
+                    console.log("Result :", result);
                     closeInput();
                 });
                 break;
             case 3:
                 r1.question('Please enter the length :', (length) => {
                     r1.question('Please enter the width :', (width) => {
-                        console.log("Result :", shape.rectangleArea(length, width));
+                        const result = Math.round(shape.rectangleArea(length, width) * 100) / 100;
+                        console.log("Result :", result);
                         closeInput();
                     });
                 });
@@ -44,39 +47,45 @@ r1.question(
             case 4:
                 r1.question('Please enter the length :', (length) => {
                     r1.question('Please enter the width :', (width) => {
-                        console.log("Result :", shape.rectanglePerimeter(length, width));
+                        const result = Math.round(shape.rectanglePerimeter(length, width) * 100) / 100;
+                        console.log("Result :", result);
                         closeInput();
                     });
                 });
                 break;
             case 5:
                 r1.question('Please enter the radius :', (radius) => {
-                    console.log("Result :", shape.circleArea(radius));
+                    const result = Math.round(shape.circleArea(radius) * 100) / 100;
+                    console.log("Result :", result);
                     closeInput();
                 });
                 break;
             case 6:
                 r1.question('Please enter the radius :', (radius) => {
-                    console.log("Result :", shape.circleCircumference(radius));
+                    const result = Math.round(shape.circleCircumference(radius) * 100) / 100;
+                    console.log("Result :", result);
                     closeInput();
                 });
                 break;
             case 7:
                 r1.question('Please enter the side :', (side) => {
-                    console.log("Result :", shape.cubeArea(parseFloat(side)));
+                    const result = Math.round(shape.cubeArea(side) * 100) / 100;
+                    console.log("Result :", result);
                     closeInput();
                 });
                 break;
             case 8:
                 r1.question('Please enter the side :', (side) => {
-                    console.log("Result :", shape.cubeVolume(parseFloat(side)));
+                    const result = Math.round(shape.cubeVolume(side) * 100) / 100;
+                    console.log("Result :", result);
                     closeInput();
                 });
                 break;
             case 9:
                 r1.question('Please enter the radius :', (radius) => {
                     r1.question('Please enter the height : ', (height) => {
-                        console.log("Result :", shape.cylinderArea(radius, height));
+                        const result = Math.round(shape.cylinderArea(radius, height) * 100) / 100;
+                        console.log("Result :", result);
                         closeInput();
                     });
                 });
@@ -84,7 +93,8 @@ r1.question(
             case 10:
                 r1.question('Please enter the radius :', (radius) => {
                     r1.question('Please enter the height :', (height) => {
-                        console.log("Result :", shape.cylinderVolume(radius, height));
+                        const result = Math.round(shape.cylinderVolume(radius, height) * 100) / 100;
+                        console.log("Result :", result);
                         closeInput();
                     });
                 });
