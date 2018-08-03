@@ -62,6 +62,9 @@ const showFollowers = (data) => {
 const openQuestion = () => {
     rl.question(mainMenu, (answer1) => {
         switch (parseInt(answer1)) {
+            case 0:
+                closeQuestion();
+                break;
             case 1:
                 rl.question('Please enter the side : ', side => {
                     calculate(shape.squareArea(parseFloat(side)));
@@ -122,9 +125,6 @@ const openQuestion = () => {
                 break;
             case 11:
                 getFollowers();
-                break;
-            case 0:
-                closeQuestion();
                 break;
             default:
                 console.log("Wrong input!");
